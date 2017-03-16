@@ -15,7 +15,6 @@ class App extends Component {
   }
 
   search() {
-    console.log('this.state', this.state);
     const BASE_URL = 'https://api.spotify.com/v1/search?';
     let FETCH_URL = `${BASE_URL}q=${this.state.query}&type=artist&limit=1`;
     const ALBUM_URL = 'https://api.spotify.com/v1/artists/';
@@ -34,7 +33,6 @@ class App extends Component {
       })
       .then(response => response.json())
       .then(json => {
-        console.log('artists trascks', json)
         const {tracks} = json;
         this.setState({tracks});
       })
@@ -58,6 +56,15 @@ class App extends Component {
                 if (event.key === 'Enter') {
                   this.search();
                 }
+
+              }}
+              onKeyUp={event => {
+                console.log('event.target.value', event.target.value)
+                if (event.target.value === '') {
+                  this.setState({
+                    artist: null
+                  })
+                }
               }}
             />
             <InputGroup.Addon onClick={() => this.search()}>
@@ -69,7 +76,7 @@ class App extends Component {
         {
           this.state.artist !== null
           ?
-            <div>
+            <div className="result-container">
               <Profile artist={this.state.artist} />
               <Gallery tracks={this.state.tracks} />
             </div>

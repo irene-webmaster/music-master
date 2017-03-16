@@ -10,6 +10,11 @@ body {
 
 .app-title {
   font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
 }
 
 /*Profile*/
@@ -17,10 +22,11 @@ body {
 .profile {
   display: flex;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .profile-info {
-  margin-left: 10px;
+  margin-left: 15px;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -30,7 +36,7 @@ body {
 .profile-img {
   width: 150px;
   height: 150px;
-  border: 3px solid #fff;
+  border: 1px solid #fff;
   border-radius: 75px;
   object-fit: cover;
 }
@@ -58,7 +64,7 @@ body {
 .track-img {
   width: 220px;
   height: 220px;
-  border: 3px solid #fff;
+  border: 1px solid #fff;
   border-radius: 3px;
   object-fit: cover;
   position: absolute;
@@ -97,7 +103,7 @@ body {
   opacity: 0;
 }
 
-.track-play-inner:hover {
+.track-play:hover .track-play-inner {
   opacity: 0.8;
   animation-name: fade-in;
   animation-duration: 0.5s;
